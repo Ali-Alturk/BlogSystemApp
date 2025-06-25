@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setupFormValidation();
     setupInteractiveFeatures();
     setupAnimations();
-});
 
 /**
  * Initialize all components

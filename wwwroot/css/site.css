@@ -518,6 +518,22 @@ textarea.form-control {
 /* ============================================
    SIDEBAR COMPONENTS
    ============================================ */
+.blog-sidebar {
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+/* Mobile sidebar behavior */
+@media (max-width: 991.98px) {
+  .blog-sidebar {
+    position: static;
+    max-height: none;
+    margin-top: 3rem;
+  }
+}
+
 .recent-posts-widget .list-group-item,
 .category-widget .list-group-item {
   border: none;
