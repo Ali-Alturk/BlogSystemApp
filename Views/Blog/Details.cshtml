@@ -1,0 +1,88 @@
+@model BlogSystemApp.Models.BlogPost
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Blog Posts</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.Title</li>
+    </ol>
+</nav>
+
+<article class="blog-post">
+    <header class="mb-4">
+        <h1 class="blog-post-title">@Model.Title</h1>
+        <div class="blog-post-meta">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <small class="text-muted">
+                        By <strong>@Model.Author</strong> on @Model.CreatedDate.ToString("MMMM dd, yyyy")
+                        @if (Model.UpdatedDate.HasValue)
+                        {
+                            <span> (Updated: @Model.UpdatedDate.Value.ToString("MMMM dd, yyyy"))</span>
+                        }
+                    </small>
+                </div>
+                <div>
+                    <small class="text-muted">@Model.ViewCount views</small>
+                </div>
+            </div>
+        </div>
+        @if (!string.IsNullOrEmpty(Model.Tags))
+        {
+            <div class="mt-2">
+                @foreach (var tag in Model.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    <span class="badge bg-primary me-1">@tag.Trim()</span>
+                }
+            </div>
+        }
+    </header>
+
+    <div class="blog-post-content">
+        @Html.Raw(Model.Content.Replace("\n", "<br />"))
+    </div>
+</article>
+
+<hr class="my-4">
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="d-flex justify-content-start">
+            <a asp-action="Index" class="btn btn-outline-secondary me-2">← Back to Posts</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="d-flex justify-content-end">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary me-2">Edit</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">Delete</a>
+        </div>
+    </div>
+</div>
+
+<hr class="my-4">
+
+<div class="card">
+    <div class="card-header">
+        <h5>Post Information</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <strong>Author:</strong> @Model.Author<br>
+                <strong>Created:</strong> @Model.CreatedDate.ToString("MMMM dd, yyyy HH:mm")<br>
+                @if (Model.UpdatedDate.HasValue)
+                {
+                    <strong>Last Updated:</strong> @Model.UpdatedDate.Value.ToString("MMMM dd, yyyy HH:mm")<br>
+                }
+            </div>
+            <div class="col-md-6">
+                <strong>Views:</strong> @Model.ViewCount<br>
+                <strong>Status:</strong> @(Model.IsPublished ? "Published" : "Draft")<br>
+                <strong>Tags:</strong> @(string.IsNullOrEmpty(Model.Tags) ? "None" : Model.Tags)
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+@model BlogSystemApp.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Create New Post";
+}
+
+<h1>Create New Blog Post</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control" placeholder="Enter a compelling title for your blog post" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Summary" class="form-label"></label>
+                <textarea asp-for="Summary" class="form-control" rows="3" placeholder="Write a brief summary of your post (optional)"></textarea>
+                <span asp-validation-for="Summary" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Content" class="form-label"></label>
+                <textarea asp-for="Content" class="form-control" rows="15" placeholder="Write your blog post content here..."></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Author" class="form-label"></label>
+                <input asp-for="Author" class="form-control" placeholder="Your name" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Tags" class="form-label"></label>
+                <input asp-for="Tags" class="form-control" placeholder="Enter tags separated by commas (e.g., technology, tutorial, asp.net)" />
+                <span asp-validation-for="Tags" class="text-danger"></span>
+            </div>
+            
+            <div class="form-check mb-3">
+                <input class="form-check-input" asp-for="IsPublished" />
+                <label class="form-check-label" asp-for="IsPublished">
+                    Publish immediately
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create Post" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Writing Tips</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li>📝 <strong>Title:</strong> Make it clear and engaging</li>
+                    <li>📋 <strong>Summary:</strong> Help readers understand what to expect</li>
+                    <li>✍️ <strong>Content:</strong> Use clear, concise language</li>
+                    <li>🏷️ <strong>Tags:</strong> Help with discoverability</li>
+                    <li>👁️ <strong>Preview:</strong> Review before publishing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

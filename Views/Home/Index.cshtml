@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Blog System</h1>
+    <p class="lead">A modern blog platform built with ASP.NET Core MVC</p>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3>Latest Blog Posts</h3>
+            </div>
+            <div class="card-body">
+                <p>Discover the latest thoughts, tutorials, and insights from our blog.</p>
+                <a class="btn btn-primary" asp-controller="Blog" asp-action="Index">View All Posts</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h3>Quick Actions</h3>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a class="btn btn-success" asp-controller="Blog" asp-action="Create">Create New Post</a>
+                    <a class="btn btn-info" asp-controller="Blog" asp-action="Index">Browse Posts</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3>About This Blog System</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    This blog system is built with ASP.NET Core MVC and uses Entity Framework Core with SQLite for data storage.
+                    It features a clean, responsive design and includes functionality for creating, editing, and managing blog posts.
+                </p>
+                <h5>Features:</h5>
+                <ul>
+                    <li>Create and edit blog posts</li>
+                    <li>Search and filter posts</li>
+                    <li>View tracking</li>
+                    <li>Responsive design</li>
+                    <li>SQLite database integration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
