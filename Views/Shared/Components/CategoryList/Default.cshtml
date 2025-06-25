@@ -1,0 +1,42 @@
+@model IEnumerable<BlogSystemApp.ViewComponents.CategoryViewModel>
+
+<div class="card shadow-sm category-widget">
+    <div class="card-header bg-success text-white">
+        <h5 class="card-title mb-0">
+            <i class="fas fa-tags me-2"></i>Categories
+        </h5>
+    </div>
+    <div class="card-body p-0">
+        @if (Model.Any())
+        {
+            <div class="list-group list-group-flush">
+                @foreach (var category in Model)
+                {
+                    <div class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center">
+                        <div>
+                            <a asp-controller="Blog" asp-action="Index" asp-route-categoryId="@category.Id" 
+                               class="text-decoration-none text-dark fw-semibold">
+                                <i class="fas fa-folder-open me-2 text-success"></i>@category.Name
+                            </a>
+                            @if (!string.IsNullOrEmpty(category.Description))
+                            {
+                                <small class="d-block text-muted">@category.Description</small>
+                            }
+                        </div>
+                        @if (ViewBag.ShowPostCount)
+                        {
+                            <span class="badge bg-secondary rounded-pill">@category.PostCount</span>
+                        }
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="p-3 text-center text-muted">
+                <i class="fas fa-folder fa-2x mb-2"></i>
+                <p class="mb-0">No categories available</p>
+            </div>
+        }
+    </div>
+</div>

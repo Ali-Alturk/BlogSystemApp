@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\BlogSystemApp\\wwwroot\\images\\default-post.svg",
+      "PackagePath": "staticwebassets\\images\\default-post.svg"
+    },
+    {
       "Id": "D:\\BlogSystemApp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

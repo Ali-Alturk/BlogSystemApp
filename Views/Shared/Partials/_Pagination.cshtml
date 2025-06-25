@@ -1,0 +1,72 @@
+@{
+    var currentPage = ViewData["CurrentPage"] as int? ?? 1;
+    var totalPages = ViewData["TotalPages"] as int? ?? 1;
+    var totalItems = ViewData["TotalItems"] as int? ?? 0;
+    var pageSize = ViewData["PageSize"] as int? ?? 10;
+}
+
+@if (totalPages > 1)
+{
+    <nav aria-label="Blog pagination" class="mt-4">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="text-muted mb-0">
+                    Showing @((currentPage - 1) * pageSize + 1) to @(Math.Min(currentPage * pageSize, totalItems)) of @totalItems results
+                </p>
+            </div>
+            <div class="col-md-6">
+                <ul class="pagination justify-content-md-end justify-content-center mb-0">
+                    @if (currentPage > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@GetPageUrl(1)" aria-label="First">
+                                <i class="fas fa-angle-double-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="@GetPageUrl(currentPage - 1)" aria-label="Previous">
+                                <i class="fas fa-angle-left"></i>
+                            </a>
+                        </li>
+                    }
+                    
+                    @{
+                        var startPage = Math.Max(1, currentPage - 2);
+                        var endPage = Math.Min(totalPages, currentPage + 2);
+                    }
+                    
+                    @for (var pageNum = startPage; pageNum <= endPage; pageNum++)
+                    {
+                        <li class="page-item @(pageNum == currentPage ? "active" : "")">
+                            <a class="page-link" href="@GetPageUrl(pageNum)">@pageNum</a>
+                        </li>
+                    }
+                    
+                    @if (currentPage < totalPages)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@GetPageUrl(currentPage + 1)" aria-label="Next">
+                                <i class="fas fa-angle-right"></i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="@GetPageUrl(totalPages)" aria-label="Last">
+                                <i class="fas fa-angle-double-right"></i>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+}
+
+@functions {
+    private string GetPageUrl(int pageNum)
+    {
+        var queryString = ViewContext.HttpContext.Request.QueryString.Value ?? "";
+        var query = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(queryString);
+        query["page"] = pageNum.ToString();
+        return ViewContext.HttpContext.Request.Path + Microsoft.AspNetCore.WebUtilities.QueryHelpers.AddQueryString("", query);
+    }
+}

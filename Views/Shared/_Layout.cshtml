@@ -4,82 +4,129 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Blog System</title>
+    
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BlogSystemApp.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Additional head content -->
+    @await RenderSectionAsync("Head", required: false)
 </head>
 <body>
+    <!-- Navigation Header -->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Blog System</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand pulse-on-hover" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-blog me-2"></i>Blog System
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-                                <i class="fas fa-home"></i> Home
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-1"></i>Home
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Blog" asp-action="Index">
-                                <i class="fas fa-blog"></i> All Posts
+                            <a class="nav-link" asp-area="" asp-controller="Blog" asp-action="Index">
+                                <i class="fas fa-newspaper me-1"></i>All Posts
                             </a>
                         </li>
                         @if (User.Identity!.IsAuthenticated)
                         {
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-edit"></i> My Content
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-edit me-1"></i>My Content
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" asp-controller="Blog" asp-action="MyPosts">
-                                        <i class="fas fa-file-alt"></i> My Posts
-                                    </a></li>
-                                    <li><a class="dropdown-item" asp-controller="Blog" asp-action="Create">
-                                        <i class="fas fa-plus"></i> Create Post
-                                    </a></li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Blog" asp-action="MyPosts">
+                                            <i class="fas fa-file-alt me-2"></i>My Posts
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Blog" asp-action="Create">
+                                            <i class="fas fa-plus me-2"></i>Create New Post
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         }
                     </ul>
+                    
+                    <!-- User Authentication Menu -->
                     <ul class="navbar-nav">
                         @if (User.Identity!.IsAuthenticated)
                         {
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-user"></i> @User.FindFirst("DisplayName")?.Value
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user-circle me-1"></i>
+                                    @(User.FindFirst("DisplayName")?.Value ?? User.Identity.Name)
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile">
-                                        <i class="fas fa-user-circle"></i> My Profile
-                                    </a></li>
-                                    <li><a class="dropdown-item" asp-controller="Account" asp-action="ChangePassword">
-                                        <i class="fas fa-key"></i> Change Password
-                                    </a></li>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li>
+                                        <h6 class="dropdown-header">
+                                            <i class="fas fa-user me-1"></i>Account
+                                        </h6>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Account" asp-action="Profile">
+                                            <i class="fas fa-user-edit me-2"></i>My Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Account" asp-action="ChangePassword">
+                                            <i class="fas fa-key me-2"></i>Change Password
+                                        </a>
+                                    </li>
+                                    
                                     @if (User.IsInRole("Admin"))
                                     {
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><h6 class="dropdown-header">Administration</h6></li>
-                                        <li><a class="dropdown-item text-danger" asp-area="Admin" asp-controller="Home" asp-action="Index">
-                                            <i class="fas fa-cogs"></i> Admin Dashboard
-                                        </a></li>
-                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Users" asp-action="Index">
-                                            <i class="fas fa-users"></i> Manage Users
-                                        </a></li>
-                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Posts" asp-action="Index">
-                                            <i class="fas fa-file-alt"></i> Manage Posts
-                                        </a></li>
+                                        <li>
+                                            <h6 class="dropdown-header">
+                                                <i class="fas fa-cogs me-1"></i>Administration
+                                            </h6>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item text-danger" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                                                <i class="fas fa-tachometer-alt me-2"></i>Admin Dashboard
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" asp-area="Admin" asp-controller="Users" asp-action="Index">
+                                                <i class="fas fa-users me-2"></i>Manage Users
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" asp-area="Admin" asp-controller="Posts" asp-action="Index">
+                                                <i class="fas fa-file-alt me-2"></i>Manage Posts
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" asp-area="Admin" asp-controller="Categories" asp-action="Index">
+                                                <i class="fas fa-tags me-2"></i>Manage Categories
+                                            </a>
+                                        </li>
                                     }
+                                    
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
                                             <button type="submit" class="dropdown-item text-danger">
-                                                <i class="fas fa-sign-out-alt"></i> Logout
+                                                <i class="fas fa-sign-out-alt me-2"></i>Logout
                                             </button>
                                         </form>
                                     </li>
@@ -89,13 +136,13 @@
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">
-                                    <i class="fas fa-sign-in-alt"></i> Login
+                                <a class="nav-link" asp-controller="Account" asp-action="Login">
+                                    <i class="fas fa-sign-in-alt me-1"></i>Login
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">
-                                    <i class="fas fa-user-plus"></i> Register
+                                <a class="nav-link" asp-controller="Account" asp-action="Register">
+                                    <i class="fas fa-user-plus me-1"></i>Register
                                 </a>
                             </li>
                         }
@@ -104,20 +151,91 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+    <!-- Main Content Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Main Content Area -->
+            <div class="col-lg-8 col-xl-9">
+                <!-- Breadcrumb Navigation -->
+                @await Html.PartialAsync("Partials/_Breadcrumb")
+                
+                <!-- Alert Messages -->
+                @await Html.PartialAsync("Partials/_AlertMessages", TempData["Message"]?.ToString())
+                
+                <main role="main" class="fade-in-up">
+                    @RenderBody()
+                </main>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4 col-xl-3">
+                <aside class="blog-sidebar mt-4">
+                    <!-- Recent Posts Widget -->
+                    <div class="mb-4">
+                        @await Component.InvokeAsync("RecentPosts", new { count = 5 })
+                    </div>
+                    
+                    <!-- Categories Widget -->
+                    <div class="mb-4">
+                        @await Component.InvokeAsync("CategoryList", new { showPostCount = true })
+                    </div>
+                    
+                    <!-- Additional Sidebar Content -->
+                    @await RenderSectionAsync("Sidebar", required: false)
+                </aside>
+            </div>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <!-- Footer -->
+    <footer class="footer mt-auto">
         <div class="container">
-            &copy; 2025 - Blog System - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-blog me-2 text-gradient"></i>
+                        <span>&copy; 2025 - Blog System</span>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy" class="me-3">
+                        <i class="fas fa-shield-alt me-1"></i>Privacy Policy
+                    </a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="fas fa-info-circle me-1"></i>About
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
     <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <!-- Page-specific scripts -->
     @await RenderSectionAsync("Scripts", required: false)
+    
+    <!-- Initialize tooltips and other Bootstrap components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Bootstrap tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+            
+            // Auto-hide alerts after 5 seconds
+            setTimeout(function() {
+                var alerts = document.querySelectorAll('.alert:not(.alert-permanent)');
+                alerts.forEach(function(alert) {
+                    var bsAlert = new bootstrap.Alert(alert);
+                    bsAlert.close();
+                });
+            }, 5000);
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,80 @@
+@model string
+
+@if (!string.IsNullOrEmpty(Model))
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-dismissible alert-@(Model.Split('|')[0]) fade show" role="alert">
+                <div class="d-flex align-items-center">
+                    @switch (Model.Split('|')[0])
+                    {
+                        case "success":
+                            <i class="fas fa-check-circle me-2"></i>
+                            break;
+                        case "danger":
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            break;
+                        case "warning":
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            break;
+                        case "info":
+                            <i class="fas fa-info-circle me-2"></i>
+                            break;
+                        default:
+                            <i class="fas fa-bell me-2"></i>
+                            break;
+                    }
+                    <div class="flex-grow-1">
+                        @Html.Raw(Model.Contains('|') ? Model.Split('|')[1] : Model)
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <div class="flex-grow-1">@TempData["SuccessMessage"]</div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <div class="flex-grow-1">@TempData["ErrorMessage"]</div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+}
+
+@if (TempData["InfoMessage"] != null)
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <div class="flex-grow-1">@TempData["InfoMessage"]</div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,57 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\BlogSystemApp\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\BlogSystemApp\\wwwroot\\images\\default-post.svg",
+      "PackagePath": "staticwebassets\\images\\default-post.svg"
+    },
+    {
+      "Id": "D:\\BlogSystemApp\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\jquery.min.js"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.BlogSystemApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.BlogSystemApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.BlogSystemApp.props",
+      "PackagePath": "build\\BlogSystemApp.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlogSystemApp.props",
+      "PackagePath": "buildMultiTargeting\\BlogSystemApp.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlogSystemApp.props",
+      "PackagePath": "buildTransitive\\BlogSystemApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

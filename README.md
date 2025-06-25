@@ -1,8 +1,17 @@
 # Enhanced Blog System - ASP.NET Core MVC
 
-A comprehensive blog system built with ASP.NET Core MVC, Entity Framework Core, and SQLite featuring user management, categories, and advanced commenting.
+A comprehensive blog system built with ASP.NET Core MVC, Entity Framework Core, and SQLite featuring user management, categories, and a beautiful, responsive UI.
 
-## ✨ New Features
+## 🎨 UI Features
+
+- **✨ Modern Design**: Custom Bootstrap 5 theme with gradients and animations
+- **📱 Fully Responsive**: Mobile-first design that works on all devices
+- **🧩 Modular Components**: 2 View Components and 6+ reusable partial views
+- **🏗️ Multiple Layouts**: Separate public and admin layouts
+- **🖼️ Rich Media**: Enhanced image handling with default placeholders
+- **🎯 Interactive Elements**: Smooth animations, hover effects, and modern UI
+
+## ✨ Blog Features
 
 - **👥 User Management**: Complete user system with roles (Admin, Editor, User)
 - **📁 Categories**: Organize posts with colored categories
@@ -10,7 +19,6 @@ A comprehensive blog system built with ASP.NET Core MVC, Entity Framework Core, 
 - **💬 Enhanced Comments**: Support for both registered and anonymous users
 - **🔍 Advanced Search**: Filter by category, tags, and search terms
 - **📊 Analytics**: View tracking and comment counts
-- **� Modern UI**: Bootstrap 5 with responsive design
 
 ## 🏗️ Enhanced Architecture
 

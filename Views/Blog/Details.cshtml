@@ -49,6 +49,16 @@
         }
     </header>
 
+    @if (!string.IsNullOrEmpty(Model.Post.FeaturedImage) || true)
+    {
+        <div class="blog-featured-image-container mb-4">
+            <img src="@(!string.IsNullOrEmpty(Model.Post.FeaturedImage) ? Model.Post.FeaturedImage : "/images/default-post.svg")" 
+                 class="img-fluid rounded shadow-sm" 
+                 alt="@Model.Post.Title"
+                 style="width: 100%; max-height: 400px; object-fit: cover;">
+        </div>
+    }
+
     <div class="blog-post-content">
         @Html.Raw(Model.Post.Content.Replace("\n", "<br />"))
     </div>
