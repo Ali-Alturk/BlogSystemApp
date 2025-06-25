@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using BlogSystemApp.Data;
 using BlogSystemApp.Models;
+using BlogSystemApp.Models.ViewModels;
 
 namespace BlogSystemApp.Areas.Admin.Controllers
 {
@@ -44,7 +45,22 @@ namespace BlogSystemApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            return View(category);
+            var postCount = category.Posts.Count;
+            var publishedPostCount = category.Posts.Count(p => p.IsPublished);
+            var recentPosts = category.Posts
+                .OrderByDescending(p => p.CreatedDate)
+                .Take(5);
+
+            var viewModel = new CategoryManagementViewModel
+            {
+                Category = category,
+                PostCount = postCount,
+                PublishedPostCount = publishedPostCount,
+                RecentPosts = recentPosts,
+                CanDelete = postCount == 0 // Can only delete if no posts
+            };
+
+            return View(viewModel);
         }
 
         // GET: Admin/Categories/Create

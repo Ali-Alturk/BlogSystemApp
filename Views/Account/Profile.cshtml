@@ -1,4 +1,5 @@
 @model BlogSystemApp.Models.ViewModels.UserProfileViewModel
+@using BlogSystemApp.Models
 @{
     ViewData["Title"] = "My Profile";
 }
@@ -23,7 +24,7 @@
                         <p><strong>Username:</strong> @Model.Username</p>
                         <p><strong>Email:</strong> @Model.Email</p>
                         <p><strong>Role:</strong> 
-                            <span class="badge bg-@(Model.Role == "Admin" ? "danger" : Model.Role == "Editor" ? "warning" : "primary")">
+                            <span class="badge bg-@(Model.Role == UserRole.Admin ? "danger" : Model.Role == UserRole.Editor ? "warning" : "primary")">
                                 @Model.Role
                             </span>
                         </p>

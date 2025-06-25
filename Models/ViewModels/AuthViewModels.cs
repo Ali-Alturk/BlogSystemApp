@@ -58,15 +58,44 @@ namespace BlogSystemApp.Models.ViewModels
     public class UserProfileViewModel
     {
         public int Id { get; set; }
+        
+        [Required]
+        [StringLength(50)]
         public string Username { get; set; } = string.Empty;
+        
+        [Required]
+        [EmailAddress]
         public string Email { get; set; } = string.Empty;
+        
+        [StringLength(100)]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; } = string.Empty;
+        
+        [StringLength(100)]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; } = string.Empty;
-        public string Bio { get; set; } = string.Empty;
-        public string Role { get; set; } = string.Empty;
+        
+        [StringLength(1000)]
+        public string? Bio { get; set; }
+        
+        [Url]
+        [Display(Name = "Profile Picture URL")]
+        public string? ProfilePictureUrl { get; set; }
+        
+        public UserRole Role { get; set; }
+        public bool IsActive { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? LastLoginDate { get; set; }
-        public string DisplayName { get; set; } = string.Empty;
+        
+        // Statistics
+        public int TotalPosts { get; set; }
+        public int PublishedPosts { get; set; }
+        public int TotalComments { get; set; }
+        public int TotalViews { get; set; }
+        
+        public string DisplayName => !string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(LastName) 
+            ? $"{FirstName} {LastName}" 
+            : Username;
     }
 
     public class ChangePasswordViewModel

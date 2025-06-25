@@ -144,12 +144,21 @@ namespace BlogSystemApp.Controllers
         public async Task<IActionResult> Profile()
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
-            var user = await _context.Users.FindAsync(userId);
+            var user = await _context.Users
+                .Include(u => u.Posts)
+                .Include(u => u.Comments)
+                .FirstOrDefaultAsync(u => u.Id == userId);
 
             if (user == null)
             {
                 return NotFound();
             }
+
+            // Calculate statistics
+            var totalPosts = user.Posts.Count;
+            var publishedPosts = user.Posts.Count(p => p.IsPublished);
+            var totalComments = user.Comments.Count;
+            var totalViews = user.Posts.Sum(p => p.ViewCount);
 
             var model = new UserProfileViewModel
             {
@@ -159,11 +168,46 @@ namespace BlogSystemApp.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Bio = user.Bio,
-                Role = user.Role,
+                ProfilePictureUrl = user.ProfilePicture,
+                Role = Enum.Parse<UserRole>(user.Role),
+                IsActive = user.IsActive,
                 CreatedDate = user.CreatedDate,
                 LastLoginDate = user.LastLoginDate,
-                DisplayName = user.DisplayName
+                TotalPosts = totalPosts,
+                PublishedPosts = publishedPosts,
+                TotalComments = totalComments,
+                TotalViews = totalViews
             };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Profile(UserProfileViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+                var user = await _context.Users.FindAsync(userId);
+
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                // Update user profile
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.Bio = model.Bio ?? string.Empty;
+                user.ProfilePicture = model.ProfilePictureUrl ?? string.Empty;
+
+                await _context.SaveChangesAsync();
+
+                TempData["Message"] = "Profile updated successfully!";
+                return RedirectToAction(nameof(Profile));
+            }
 
             return View(model);
         }
