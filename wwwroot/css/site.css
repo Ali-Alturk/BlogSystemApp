@@ -83,7 +83,6 @@ body {
   line-height: 1.6;
   color: var(--gray-700);
   background-color: var(--gray-50);
-  margin-bottom: 60px;
 }
 
 /* ============================================
@@ -640,19 +639,48 @@ textarea.form-control {
 .footer {
   background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
   color: var(--gray-300);
-  padding: 1.5rem 0;
-  margin-top: 3rem;
+  padding: 2rem 0;
   border-top: 4px solid var(--primary-color);
+  box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1);
 }
 
 .footer a {
   color: var(--gray-100);
   font-weight: 500;
   transition: var(--transition-colors);
+  text-decoration: none;
 }
 
 .footer a:hover {
   color: var(--primary-light);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.footer h6 {
+  font-family: var(--font-family-serif);
+  color: var(--white);
+  margin-bottom: 0;
+}
+
+.footer .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-all);
+}
+
+.footer .footer-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer .social-links {
+  font-size: 0.875rem;
+}
+
+.footer .text-primary {
+  color: var(--primary-light) !important;
 }
 
 /* ============================================
