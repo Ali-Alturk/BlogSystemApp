@@ -1,4 +1,4 @@
-@model BlogSystemApp.Models.BlogPost
+@model BlogSystemApp.Models.Post
 
 @{
     ViewData["Title"] = "Delete Post";
@@ -12,8 +12,12 @@
 </div>
 
 <div class="card">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between align-items-center">
         <h3>@Model.Title</h3>
+        @if (Model.Category != null)
+        {
+            <span class="badge" style="background-color: @Model.Category.Color">@Model.CategoryName</span>
+        }
     </div>
     <div class="card-body">
         <div class="row">
@@ -21,7 +25,15 @@
                 <strong>Author:</strong>
             </div>
             <div class="col-md-9">
-                @Model.Author
+                @Model.AuthorName
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <strong>Category:</strong>
+            </div>
+            <div class="col-md-9">
+                @Model.CategoryName
             </div>
         </div>
         <div class="row">
@@ -30,6 +42,14 @@
             </div>
             <div class="col-md-9">
                 @Model.CreatedDate.ToString("MMMM dd, yyyy")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <strong>Publication Date:</strong>
+            </div>
+            <div class="col-md-9">
+                @Model.PublicationDate.ToString("MMMM dd, yyyy")
             </div>
         </div>
         @if (Model.UpdatedDate.HasValue)
@@ -53,10 +73,22 @@
         </div>
         <div class="row">
             <div class="col-md-3">
+                <strong>Comments:</strong>
+            </div>
+            <div class="col-md-9">
+                @Model.CommentCount
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
                 <strong>Status:</strong>
             </div>
             <div class="col-md-9">
                 @(Model.IsPublished ? "Published" : "Draft")
+                @if (Model.IsFeatured)
+                {
+                    <span class="badge bg-warning ms-1">Featured</span>
+                }
             </div>
         </div>
         @if (!string.IsNullOrEmpty(Model.Tags))

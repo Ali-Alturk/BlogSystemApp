@@ -1,4 +1,4 @@
-@model BlogSystemApp.Models.BlogPost
+@model BlogSystemApp.Models.Post
 
 @{
     ViewData["Title"] = "Edit Post";
@@ -13,7 +13,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="CreatedDate" />
+            <input type="hidden" asp-for="PublicationDate" />
             <input type="hidden" asp-for="ViewCount" />
+            <input type="hidden" asp-for="AuthorId" />
             
             <div class="form-group mb-3">
                 <label asp-for="Title" class="form-label"></label>
@@ -34,9 +36,15 @@
             </div>
             
             <div class="form-group mb-3">
-                <label asp-for="Author" class="form-label"></label>
-                <input asp-for="Author" class="form-control" />
-                <span asp-validation-for="Author" class="text-danger"></span>
+                <label asp-for="CategoryId" class="form-label">Category</label>
+                <select asp-for="CategoryId" class="form-select">
+                    <option value="">Select a category...</option>
+                    @foreach (var category in ViewBag.Categories as IEnumerable<BlogSystemApp.Models.Category>)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
             
             <div class="form-group mb-3">
@@ -49,6 +57,13 @@
                 <input class="form-check-input" asp-for="IsPublished" />
                 <label class="form-check-label" asp-for="IsPublished">
                     Published
+                </label>
+            </div>
+            
+            <div class="form-check mb-3">
+                <input class="form-check-input" asp-for="IsFeatured" />
+                <label class="form-check-label" asp-for="IsFeatured">
+                    Featured
                 </label>
             </div>
             
@@ -65,13 +80,29 @@
                 <h5>Post Information</h5>
             </div>
             <div class="card-body">
+                <p><strong>Author:</strong> @Model.AuthorName</p>
                 <p><strong>Created:</strong> @Model.CreatedDate.ToString("MMMM dd, yyyy HH:mm")</p>
+                <p><strong>Published:</strong> @Model.PublicationDate.ToString("MMMM dd, yyyy HH:mm")</p>
                 <p><strong>Views:</strong> @Model.ViewCount</p>
+                <p><strong>Comments:</strong> @Model.CommentCount</p>
                 @if (Model.UpdatedDate.HasValue)
                 {
                     <p><strong>Last Updated:</strong> @Model.UpdatedDate.Value.ToString("MMMM dd, yyyy HH:mm")</p>
                 }
                 <p><strong>Status:</strong> @(Model.IsPublished ? "Published" : "Draft")</p>
+                <p><strong>Featured:</strong> @(Model.IsFeatured ? "Yes" : "No")</p>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5>Available Categories</h5>
+            </div>
+            <div class="card-body">
+                @foreach (var category in ViewBag.Categories as IEnumerable<BlogSystemApp.Models.Category>)
+                {
+                    <span class="badge me-1 mb-1" style="background-color: @category.Color">@category.Name</span>
+                }
             </div>
         </div>
     </div>

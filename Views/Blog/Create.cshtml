@@ -1,4 +1,4 @@
-@model BlogSystemApp.Models.BlogPost
+@model BlogSystemApp.Models.Post
 
 @{
     ViewData["Title"] = "Create New Post";
@@ -31,9 +31,15 @@
             </div>
             
             <div class="form-group mb-3">
-                <label asp-for="Author" class="form-label"></label>
-                <input asp-for="Author" class="form-control" placeholder="Your name" />
-                <span asp-validation-for="Author" class="text-danger"></span>
+                <label asp-for="CategoryId" class="form-label">Category</label>
+                <select asp-for="CategoryId" class="form-select">
+                    <option value="">Select a category...</option>
+                    @foreach (var category in ViewBag.Categories as IEnumerable<BlogSystemApp.Models.Category>)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
             
             <div class="form-group mb-3">
@@ -43,9 +49,9 @@
             </div>
             
             <div class="form-check mb-3">
-                <input class="form-check-input" asp-for="IsPublished" />
-                <label class="form-check-label" asp-for="IsPublished">
-                    Publish immediately
+                <input class="form-check-input" asp-for="IsFeatured" />
+                <label class="form-check-label" asp-for="IsFeatured">
+                    Feature this post
                 </label>
             </div>
             
@@ -64,10 +70,24 @@
                 <ul class="list-unstyled">
                     <li>📝 <strong>Title:</strong> Make it clear and engaging</li>
                     <li>📋 <strong>Summary:</strong> Help readers understand what to expect</li>
+                    <li>📁 <strong>Category:</strong> Choose the most relevant category</li>
                     <li>✍️ <strong>Content:</strong> Use clear, concise language</li>
                     <li>🏷️ <strong>Tags:</strong> Help with discoverability</li>
+                    <li>⭐ <strong>Featured:</strong> Highlight important posts</li>
                     <li>👁️ <strong>Preview:</strong> Review before publishing</li>
                 </ul>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5>Available Categories</h5>
+            </div>
+            <div class="card-body">
+                @foreach (var category in ViewBag.Categories as IEnumerable<BlogSystemApp.Models.Category>)
+                {
+                    <span class="badge me-1 mb-1" style="background-color: @category.Color">@category.Name</span>
+                }
             </div>
         </div>
     </div>

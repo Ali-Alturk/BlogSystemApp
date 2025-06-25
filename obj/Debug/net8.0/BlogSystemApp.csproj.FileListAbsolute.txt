@@ -126,3 +126,5 @@ E:\BlogSystemApp\obj\Debug\net8.0\refint\BlogSystemApp.dll
 E:\BlogSystemApp\obj\Debug\net8.0\BlogSystemApp.pdb
 E:\BlogSystemApp\obj\Debug\net8.0\BlogSystemApp.genruntimeconfig.cache
 E:\BlogSystemApp\obj\Debug\net8.0\ref\BlogSystemApp.dll
+E:\BlogSystemApp\obj\Debug\net8.0\BlogSystemApp.sourcelink.json
+E:\BlogSystemApp\bin\Debug\net8.0\BCrypt.Net-Next.dll
