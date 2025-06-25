@@ -9,85 +9,85 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BlogSystemApp
 build_property.RootNamespace = BlogSystemApp
-build_property.ProjectDir = E:\BlogSystemApp\
+build_property.ProjectDir = E:\BlogSystemApp1\BlogSystemApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\BlogSystemApp
+build_property.MSBuildProjectDirectory = E:\BlogSystemApp1\BlogSystemApp
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[E:/BlogSystemApp/Views/Account/AccessDenied.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Account/ChangePassword.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Account/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Account/Login.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Account/ManageUsers.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Account/ManageUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNYW5hZ2VVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Account/Profile.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Account/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Account/Register.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Blog/Create.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Blog/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Blog/Delete.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Blog/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Blog/Details.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Blog/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Blog/Edit.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Blog/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Blog/Index.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Blog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Home/Index.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Home/Privacy.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Shared/Error.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Shared/_Layout.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/_ViewImports.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/BlogSystemApp/Views/_ViewStart.cshtml]
+[E:/BlogSystemApp1/BlogSystemApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

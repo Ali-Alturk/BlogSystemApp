@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/lCFBwJbjzenVIeg4qlK9ZqpqS7rHS4/KSK7diIRhzM=",
+  "Hash": "cFMqmMaDTZ1seUJVtg7O21KFBMev0oJgTnWszTTr60g=",
   "Source": "BlogSystemApp",
   "BasePath": "_content/BlogSystemApp",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BlogSystemApp\\wwwroot",
       "Source": "BlogSystemApp",
-      "ContentRoot": "E:\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "E:\\BlogSystemApp\\wwwroot\\css\\site.css",
+      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\css\\site.css",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "E:\\BlogSystemApp\\wwwroot\\js\\site.js",
+      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\js\\site.js",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "E:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
+      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "lib/bootstrap/css/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -73,17 +73,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "7y3e6zuski",
-      "Integrity": "fx038NkLY4U1TCrBDiu5FWPEa9eiZu01EiLryshJbCo=",
+      "Fingerprint": "phwklrx2ki",
+      "Integrity": "gw2ultXFnkPH+A1vQrvYGpV65moDUZmeLbD2X+7SWos=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "E:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "lib/bootstrap/js/bootstrap.bundle.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -94,17 +94,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "y58g3z9xkb",
-      "Integrity": "qlPVgvl+tZTCpcxYJFdHB/m6mDe84wRr+l81VoYPTgQ=",
+      "Fingerprint": "jib7vbhal6",
+      "Integrity": "9a6PWZ8o+xGv/qmmi3Vbaz8n12NQC+piQpGfHva0k4k=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "E:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "E:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
+      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "lib/jquery-validation/jquery.validate.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -136,17 +136,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b7iojwaux1",
-      "Integrity": "JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA=",
+      "Fingerprint": "l1zq2mitth",
+      "Integrity": "6e0N+WJiVKBeTitK1GKSwPi3rbdPpLtuqaiitZjeD2w=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\jquery.validate.min.js"
     },
     {
-      "Identity": "E:\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
+      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "lib/jquery/jquery.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -157,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "dd6z7egasc",
-      "Integrity": "/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=",
+      "Fingerprint": "ehgnz7f14e",
+      "Integrity": "zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\jquery.min.js"
@@ -167,7 +167,7 @@
   "Endpoints": [
     {
       "Route": "css/site.css",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\css\\site.css",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -188,7 +188,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -204,7 +204,7 @@
     },
     {
       "Route": "css/site.uwr92lamhh.css",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\css\\site.css",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -225,7 +225,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -249,7 +249,7 @@
     },
     {
       "Route": "js/site.but1kovtz3.js",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\js\\site.js",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -270,7 +270,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -294,7 +294,7 @@
     },
     {
       "Route": "js/site.js",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\js\\site.js",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -315,7 +315,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -330,8 +330,8 @@
       ]
     },
     {
-      "Route": "lib/bootstrap/css/bootstrap.min.7y3e6zuski.css",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
+      "Route": "lib/bootstrap/css/bootstrap.min.css",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -340,7 +340,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "232914"
+          "Value": "232919"
         },
         {
           "Name": "Content-Type",
@@ -348,11 +348,48 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fx038NkLY4U1TCrBDiu5FWPEa9eiZu01EiLryshJbCo=\""
+          "Value": "\"gw2ultXFnkPH+A1vQrvYGpV65moDUZmeLbD2X+7SWos=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gw2ultXFnkPH+A1vQrvYGpV65moDUZmeLbD2X+7SWos="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/css/bootstrap.min.phwklrx2ki.css",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "232919"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gw2ultXFnkPH+A1vQrvYGpV65moDUZmeLbD2X+7SWos=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -362,7 +399,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "7y3e6zuski"
+          "Value": "phwklrx2ki"
         },
         {
           "Name": "label",
@@ -370,13 +407,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-fx038NkLY4U1TCrBDiu5FWPEa9eiZu01EiLryshJbCo="
+          "Value": "sha256-gw2ultXFnkPH+A1vQrvYGpV65moDUZmeLbD2X+7SWos="
         }
       ]
     },
     {
-      "Route": "lib/bootstrap/css/bootstrap.min.css",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
+      "Route": "lib/bootstrap/js/bootstrap.bundle.min.jib7vbhal6.js",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -385,44 +422,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "232914"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"fx038NkLY4U1TCrBDiu5FWPEa9eiZu01EiLryshJbCo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-fx038NkLY4U1TCrBDiu5FWPEa9eiZu01EiLryshJbCo="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/js/bootstrap.bundle.min.js",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "80421"
+          "Value": "80427"
         },
         {
           "Name": "Content-Type",
@@ -430,48 +430,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qlPVgvl+tZTCpcxYJFdHB/m6mDe84wRr+l81VoYPTgQ=\""
+          "Value": "\"9a6PWZ8o+xGv/qmmi3Vbaz8n12NQC+piQpGfHva0k4k=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-qlPVgvl+tZTCpcxYJFdHB/m6mDe84wRr+l81VoYPTgQ="
-        }
-      ]
-    },
-    {
-      "Route": "lib/bootstrap/js/bootstrap.bundle.min.y58g3z9xkb.js",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "80421"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qlPVgvl+tZTCpcxYJFdHB/m6mDe84wRr+l81VoYPTgQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -481,7 +444,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "y58g3z9xkb"
+          "Value": "jib7vbhal6"
         },
         {
           "Name": "label",
@@ -489,13 +452,50 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qlPVgvl+tZTCpcxYJFdHB/m6mDe84wRr+l81VoYPTgQ="
+          "Value": "sha256-9a6PWZ8o+xGv/qmmi3Vbaz8n12NQC+piQpGfHva0k4k="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/js/bootstrap.bundle.min.js",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "80427"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9a6PWZ8o+xGv/qmmi3Vbaz8n12NQC+piQpGfHva0k4k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9a6PWZ8o+xGv/qmmi3Vbaz8n12NQC+piQpGfHva0k4k="
         }
       ]
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.d171zkdrjx.js",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -516,7 +516,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -540,7 +540,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -561,7 +561,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -576,8 +576,8 @@
       ]
     },
     {
-      "Route": "lib/jquery-validation/jquery.validate.min.b7iojwaux1.js",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
+      "Route": "lib/jquery-validation/jquery.validate.min.js",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -586,7 +586,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "24601"
+          "Value": "24604"
         },
         {
           "Name": "Content-Type",
@@ -594,11 +594,48 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA=\""
+          "Value": "\"6e0N+WJiVKBeTitK1GKSwPi3rbdPpLtuqaiitZjeD2w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6e0N+WJiVKBeTitK1GKSwPi3rbdPpLtuqaiitZjeD2w="
+        }
+      ]
+    },
+    {
+      "Route": "lib/jquery-validation/jquery.validate.min.l1zq2mitth.js",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24604"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6e0N+WJiVKBeTitK1GKSwPi3rbdPpLtuqaiitZjeD2w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -608,7 +645,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b7iojwaux1"
+          "Value": "l1zq2mitth"
         },
         {
           "Name": "label",
@@ -616,13 +653,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA="
+          "Value": "sha256-6e0N+WJiVKBeTitK1GKSwPi3rbdPpLtuqaiitZjeD2w="
         }
       ]
     },
     {
-      "Route": "lib/jquery-validation/jquery.validate.min.js",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
+      "Route": "lib/jquery/jquery.min.ehgnz7f14e.js",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -631,7 +668,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "24601"
+          "Value": "89503"
         },
         {
           "Name": "Content-Type",
@@ -639,48 +676,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA=\""
+          "Value": "\"zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA="
-        }
-      ]
-    },
-    {
-      "Route": "lib/jquery/jquery.min.dd6z7egasc.js",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "89501"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -690,7 +690,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "dd6z7egasc"
+          "Value": "ehgnz7f14e"
         },
         {
           "Name": "label",
@@ -698,13 +698,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+          "Value": "sha256-zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs="
         }
       ]
     },
     {
       "Route": "lib/jquery/jquery.min.js",
-      "AssetFile": "E:\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
+      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -713,7 +713,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "89501"
+          "Value": "89503"
         },
         {
           "Name": "Content-Type",
@@ -721,11 +721,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\""
+          "Value": "\"zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Jun 2025 08:38:39 GMT"
+          "Value": "Wed, 25 Jun 2025 11:31:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -735,7 +735,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+          "Value": "sha256-zp0HUArZHsK1JMJwdk7EyaM+eDINjTdOxADt5Ij2JRs="
         }
       ]
     }
