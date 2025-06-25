@@ -1,0 +1,72 @@
+@model BlogSystemApp.Models.ViewModels.UserProfileViewModel
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">My Profile</h4>
+            </div>
+            <div class="card-body">
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        @TempData["SuccessMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                }
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Username:</strong> @Model.Username</p>
+                        <p><strong>Email:</strong> @Model.Email</p>
+                        <p><strong>Role:</strong> 
+                            <span class="badge bg-@(Model.Role == "Admin" ? "danger" : Model.Role == "Editor" ? "warning" : "primary")">
+                                @Model.Role
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Display Name:</strong> @Model.DisplayName</p>
+                        <p><strong>Member Since:</strong> @Model.CreatedDate.ToString("MMMM dd, yyyy")</p>
+                        @if (Model.LastLoginDate.HasValue)
+                        {
+                            <p><strong>Last Login:</strong> @Model.LastLoginDate.Value.ToString("MMMM dd, yyyy 'at' h:mm tt")</p>
+                        }
+                    </div>
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.Bio))
+                {
+                    <hr>
+                    <h6>Bio</h6>
+                    <p>@Model.Bio</p>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Account Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a asp-action="ChangePassword" class="btn btn-outline-primary">
+                        <i class="fas fa-key"></i> Change Password
+                    </a>
+                    
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="ManageUsers" class="btn btn-outline-warning">
+                            <i class="fas fa-users-cog"></i> Manage Users
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

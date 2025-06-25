@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using BlogSystemApp.Data;
 using BlogSystemApp.Models;
 using BlogSystemApp.Models.ViewModels;
+using System.Security.Claims;
 
 namespace BlogSystemApp.Controllers
 {
@@ -151,6 +153,7 @@ namespace BlogSystemApp.Controllers
         }
 
         // GET: Blog/Create
+        [Authorize]
         public async Task<IActionResult> Create()
         {
             ViewBag.Categories = await _context.Categories
@@ -162,15 +165,25 @@ namespace BlogSystemApp.Controllers
         // POST: Blog/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Title,Content,Summary,Tags,IsFeatured,CategoryId")] Post post)
         {
             if (ModelState.IsValid)
             {
-                // For now, use a default author (in a real app, you'd get this from authentication)
-                post.AuthorId = 1; // Default to admin user
+                // Get the current user ID from claims
+                var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+                
+                post.AuthorId = userId; // Set to current user
                 post.CreatedDate = DateTime.Now;
                 post.PublicationDate = DateTime.Now;
                 post.IsPublished = true;
+                
+                // Only Admins and Editors can set featured posts
+                if (!User.IsInRole("Admin") && !User.IsInRole("Editor"))
+                {
+                    post.IsFeatured = false;
+                }
+                
                 post.GenerateSlug();
                 
                 _context.Add(post);
@@ -185,6 +198,7 @@ namespace BlogSystemApp.Controllers
         }
 
         // GET: Blog/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -198,6 +212,12 @@ namespace BlogSystemApp.Controllers
                 return NotFound();
             }
             
+            // Check if user can edit this post
+            if (!CanEditPost(post))
+            {
+                return Forbid();
+            }
+            
             ViewBag.Categories = await _context.Categories
                 .Where(c => c.IsActive)
                 .ToListAsync();
@@ -207,6 +227,7 @@ namespace BlogSystemApp.Controllers
         // POST: Blog/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,Summary,Tags,IsFeatured,CategoryId,PublicationDate,CreatedDate,ViewCount,AuthorId,IsPublished")] Post post)
         {
             if (id != post.Id)
@@ -214,10 +235,29 @@ namespace BlogSystemApp.Controllers
                 return NotFound();
             }
 
+            // Get the original post to check permissions
+            var originalPost = await _context.Posts.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+            if (originalPost == null)
+            {
+                return NotFound();
+            }
+            
+            // Check if user can edit this post
+            if (!CanEditPost(originalPost))
+            {
+                return Forbid();
+            }
+
             if (ModelState.IsValid)
             {
                 try
                 {
+                    // Only Admins and Editors can set featured posts
+                    if (!User.IsInRole("Admin") && !User.IsInRole("Editor"))
+                    {
+                        post.IsFeatured = originalPost.IsFeatured; // Keep original value
+                    }
+                    
                     post.UpdatedDate = DateTime.Now;
                     post.GenerateSlug();
                     _context.Update(post);
@@ -244,6 +284,7 @@ namespace BlogSystemApp.Controllers
         }
 
         // GET: Blog/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -259,6 +300,12 @@ namespace BlogSystemApp.Controllers
             {
                 return NotFound();
             }
+            
+            // Check if user can delete this post
+            if (!CanEditPost(post))
+            {
+                return Forbid();
+            }
 
             return View(post);
         }
@@ -266,14 +313,22 @@ namespace BlogSystemApp.Controllers
         // POST: Blog/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var post = await _context.Posts.FindAsync(id);
-            if (post != null)
+            if (post == null)
             {
-                _context.Posts.Remove(post);
+                return NotFound();
+            }
+            
+            // Check if user can delete this post
+            if (!CanEditPost(post))
+            {
+                return Forbid();
             }
 
+            _context.Posts.Remove(post);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -281,6 +336,25 @@ namespace BlogSystemApp.Controllers
         private bool PostExists(int id)
         {
             return _context.Posts.Any(e => e.Id == id);
+        }
+        
+        private bool CanEditPost(Post post)
+        {
+            // Admins can edit any post
+            if (User.IsInRole("Admin"))
+            {
+                return true;
+            }
+
+            // Editors can edit any post
+            if (User.IsInRole("Editor"))
+            {
+                return true;
+            }
+
+            // Users can only edit their own posts
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            return post.AuthorId == userId;
         }
     }
 }
