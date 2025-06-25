@@ -1,0 +1,137 @@
+@model IEnumerable<BlogSystemApp.Models.Post>
+
+@{
+    ViewData["Title"] = "Manage Posts";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Posts Management</h2>
+</div>
+
+<!-- Search and Filter Form -->
+<form method="get" class="mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" 
+                   class="form-control" placeholder="Search posts..." />
+        </div>
+        <div class="col-md-3">
+            <select name="statusFilter" class="form-select">
+                <option value="">All Status</option>
+                <option value="Published" selected="@(ViewData["StatusFilter"]?.ToString() == "Published")">Published</option>
+                <option value="Draft" selected="@(ViewData["StatusFilter"]?.ToString() == "Draft")">Draft</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select name="categoryId" class="form-select">
+                <option value="">All Categories</option>
+                @if (ViewBag.Categories != null)
+                {
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        <option value="@category.Value" selected="@(ViewData["CategoryFilter"]?.ToString() == category.Value)">
+                            @category.Text
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-outline-primary">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </div>
+    </div>
+</form>
+
+<div class="card">
+    <div class="card-body">
+        @if (Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                            <th>Views</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var post in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <strong>@post.Title</strong>
+                                    @if (post.IsFeatured)
+                                    {
+                                        <span class="badge bg-warning text-dark">Featured</span>
+                                    }
+                                </td>
+                                <td>@post.AuthorName</td>
+                                <td>
+                                    @if (post.Category != null)
+                                    {
+                                        <span class="badge bg-secondary">@post.CategoryName</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Uncategorized</span>
+                                    }
+                                </td>
+                                <td>
+                                    <span class="badge @(post.IsPublished ? "bg-success" : "bg-warning")">
+                                        @(post.IsPublished ? "Published" : "Draft")
+                                    </span>
+                                </td>
+                                <td>@post.CreatedDate.ToString("MM/dd/yyyy")</td>
+                                <td>@post.ViewCount</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a asp-action="Details" asp-route-id="@post.Id" class="btn btn-sm btn-outline-info" title="View">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@post.Id" class="btn btn-sm btn-outline-warning" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form asp-action="TogglePublish" asp-route-id="@post.Id" method="post" class="d-inline">
+                                            <button type="submit" class="btn btn-sm @(post.IsPublished ? "btn-outline-secondary" : "btn-outline-success")" title="@(post.IsPublished ? "Unpublish" : "Publish")">
+                                                <i class="fas @(post.IsPublished ? "fa-eye-slash" : "fa-eye")"></i>
+                                            </button>
+                                        </form>
+                                        <a asp-action="Delete" asp-route-id="@post.Id" class="btn btn-sm btn-outline-danger" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            @if (ViewBag.TotalPages > 1)
+            {
+                <nav aria-label="Posts pagination">
+                    <ul class="pagination justify-content-center">
+                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                        {
+                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                <a class="page-link" href="?page=@i&searchString=@ViewData["CurrentFilter"]&statusFilter=@ViewData["StatusFilter"]&categoryId=@ViewData["CategoryFilter"]">@i</a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            }
+        }
+        else
+        {
+            <p class="text-center text-muted">No posts found.</p>
+        }
+    </div>
+</div>

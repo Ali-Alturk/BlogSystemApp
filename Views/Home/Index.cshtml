@@ -1,53 +1,206 @@
+@model IEnumerable<BlogSystemApp.Models.Post>
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Blog System</h1>
-    <p class="lead">A modern blog platform built with ASP.NET Core MVC</p>
-</div>
+<!-- Featured Posts Carousel -->
+@if (ViewBag.FeaturedPosts != null && ((List<BlogSystemApp.Models.Post>)ViewBag.FeaturedPosts).Any())
+{
+    <div id="featuredCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @{
+                var featuredPosts = (List<BlogSystemApp.Models.Post>)ViewBag.FeaturedPosts;
+                for (int i = 0; i < featuredPosts.Count; i++)
+                {
+                    var post = featuredPosts[i];
+                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                        <div class="card bg-primary text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">@post.Title</h5>
+                                <p class="card-text">@post.Summary</p>
+                                <p class="card-text">
+                                    <small>By @post.AuthorName • @post.PublicationDate.ToString("MMM dd, yyyy")</small>
+                                </p>
+                                <a asp-controller="Blog" asp-action="Details" asp-route-id="@post.Id" class="btn btn-light">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+}
 
 <div class="row">
     <div class="col-md-8">
-        <div class="card">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Latest Posts</h2>
+            <a asp-controller="Blog" asp-action="Index" class="btn btn-outline-primary">View All</a>
+        </div>
+
+        <!-- Search and Filter -->
+        <form method="get" class="mb-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" 
+                           class="form-control" placeholder="Search posts..." />
+                </div>
+                <div class="col-md-4">
+                    <select name="categoryId" class="form-select">
+                        <option value="">All Categories</option>
+                        @if (ViewBag.Categories != null)
+                        {
+                            @foreach (var category in (List<BlogSystemApp.Models.Category>)ViewBag.Categories)
+                            {
+                                <option value="@category.Id" selected="@(ViewData["CurrentCategory"]?.ToString() == category.Id.ToString())">
+                                    @category.Name
+                                </option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary w-100">Search</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Blog Posts -->
+        @if (Model.Any())
+        {
+            <div class="row">
+                @foreach (var post in Model)
+                {
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            @if (!string.IsNullOrEmpty(post.FeaturedImage))
+                            {
+                                <img src="@post.FeaturedImage" class="card-img-top" alt="@post.Title" style="height: 200px; object-fit: cover;">
+                            }
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">@post.Title</h5>
+                                <p class="card-text">@post.Summary</p>
+                                <div class="mt-auto">
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            By @post.AuthorName • @post.PublicationDate.ToString("MMM dd, yyyy")
+                                            @if (post.Category != null)
+                                            {
+                                                <span class="badge bg-secondary ms-2">@post.CategoryName</span>
+                                            }
+                                        </small>
+                                    </p>
+                                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@post.Id" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <!-- Pagination -->
+            @if (ViewBag.TotalPages > 1)
+            {
+                <nav aria-label="Posts pagination">
+                    <ul class="pagination justify-content-center">
+                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                        {
+                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                <a class="page-link" href="?page=@i&searchString=@ViewData["CurrentFilter"]&categoryId=@ViewData["CurrentCategory"]">@i</a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            }
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <h4>No posts found</h4>
+                <p class="text-muted">Be the first to share your thoughts!</p>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-controller="Blog" asp-action="Create" class="btn btn-primary">Create First Post</a>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Login to Create Posts</a>
+                }
+            </div>
+        }
+    </div>
+
+    <div class="col-md-4">
+        <!-- Categories Sidebar -->
+        <div class="card mb-4">
             <div class="card-header">
-                <h3>Latest Blog Posts</h3>
+                <h5>Categories</h5>
             </div>
             <div class="card-body">
-                <p>Discover the latest thoughts, tutorials, and insights from our blog.</p>
-                <a class="btn btn-primary" asp-controller="Blog" asp-action="Index">View All Posts</a>
+                @if (ViewBag.Categories != null && ((List<BlogSystemApp.Models.Category>)ViewBag.Categories).Any())
+                {
+                    <div class="list-group list-group-flush">
+                        @foreach (var category in (List<BlogSystemApp.Models.Category>)ViewBag.Categories)
+                        {
+                            <a href="?categoryId=@category.Id" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                @category.Name
+                                <span class="badge bg-primary rounded-pill">@category.PostCount</span>
+                            </a>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="text-muted">No categories available.</p>
+                }
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
+
+        <!-- Quick Actions -->
         <div class="card">
             <div class="card-header">
-                <h3>Quick Actions</h3>
+                <h5>Quick Actions</h5>
             </div>
             <div class="card-body">
-                <div class="d-grid gap-2">
-                    <a class="btn btn-success" asp-controller="Blog" asp-action="Create">Create New Post</a>
-                    <a class="btn btn-info" asp-controller="Blog" asp-action="Index">Browse Posts</a>
-                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="d-grid gap-2">
+                        <a asp-controller="Blog" asp-action="Create" class="btn btn-success">
+                            <i class="fas fa-plus"></i> Create New Post
+                        </a>
+                        <a asp-controller="Blog" asp-action="MyPosts" class="btn btn-info">
+                            <i class="fas fa-file-alt"></i> My Posts
+                        </a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="btn btn-danger">
+                                <i class="fas fa-cogs"></i> Admin Panel
+                            </a>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="d-grid gap-2">
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-primary">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                        <a asp-controller="Account" asp-action="Register" class="btn btn-outline-primary">
+                            <i class="fas fa-user-plus"></i> Register
+                        </a>
+                    </div>
+                }
             </div>
         </div>
     </div>
 </div>
-
-<div class="row mt-4">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h3>About This Blog System</h3>
-            </div>
-            <div class="card-body">
-                <p>
-                    This blog system is built with ASP.NET Core MVC and uses Entity Framework Core with SQLite for data storage.
-                    It features a clean, responsive design and includes functionality for creating, editing, and managing blog posts.
-                </p>
-                <h5>Features:</h5>
-                <ul>
-                    <li>Create and edit blog posts</li>
                     <li>Search and filter posts</li>
                     <li>View tracking</li>
                     <li>Responsive design</li>

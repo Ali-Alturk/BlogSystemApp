@@ -1,0 +1,137 @@
+@model IEnumerable<BlogSystemApp.Models.Post>
+
+@{
+    ViewData["Title"] = "My Posts";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>My Posts</h2>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Create New Post
+    </a>
+</div>
+
+<!-- Search and Filter Form -->
+<form method="get" class="mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" 
+                   class="form-control" placeholder="Search my posts..." />
+        </div>
+        <div class="col-md-3">
+            <select name="statusFilter" class="form-select">
+                <option value="">All Status</option>
+                <option value="Published" selected="@(ViewData["StatusFilter"]?.ToString() == "Published")">Published</option>
+                <option value="Draft" selected="@(ViewData["StatusFilter"]?.ToString() == "Draft")">Draft</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-outline-primary">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </div>
+    </div>
+</form>
+
+<div class="card">
+    <div class="card-body">
+        @if (Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                            <th>Updated</th>
+                            <th>Views</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var post in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <strong>@post.Title</strong>
+                                    @if (post.IsFeatured)
+                                    {
+                                        <span class="badge bg-warning text-dark">Featured</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (post.Category != null)
+                                    {
+                                        <span class="badge bg-secondary">@post.CategoryName</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Uncategorized</span>
+                                    }
+                                </td>
+                                <td>
+                                    <span class="badge @(post.IsPublished ? "bg-success" : "bg-warning")">
+                                        @(post.IsPublished ? "Published" : "Draft")
+                                    </span>
+                                </td>
+                                <td>@post.CreatedDate.ToString("MM/dd/yyyy")</td>
+                                <td>
+                                    @if (post.UpdatedDate.HasValue)
+                                    {
+                                        @post.UpdatedDate.Value.ToString("MM/dd/yyyy")
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">—</span>
+                                    }
+                                </td>
+                                <td>@post.ViewCount</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a asp-action="Details" asp-route-id="@post.Id" class="btn btn-sm btn-outline-info" title="View">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@post.Id" class="btn btn-sm btn-outline-warning" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@post.Id" class="btn btn-sm btn-outline-danger" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            @if (ViewBag.TotalPages > 1)
+            {
+                <nav aria-label="My posts pagination">
+                    <ul class="pagination justify-content-center">
+                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                        {
+                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                <a class="page-link" href="?page=@i&searchString=@ViewData["CurrentFilter"]&statusFilter=@ViewData["StatusFilter"]">@i</a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            }
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <i class="fas fa-file-alt fa-3x text-muted mb-3"></i>
+                <h4>No posts found</h4>
+                <p class="text-muted">You haven't created any posts yet. Start sharing your thoughts!</p>
+                <a asp-action="Create" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Create Your First Post
+                </a>
+            </div>
+        }
+    </div>
+</div>

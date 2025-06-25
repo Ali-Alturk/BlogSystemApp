@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Blog System Admin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        .admin-sidebar {
+            background-color: #343a40;
+            min-height: 100vh;
+        }
+        .admin-sidebar .nav-link {
+            color: #adb5bd;
+        }
+        .admin-sidebar .nav-link:hover {
+            color: #fff;
+        }
+        .admin-sidebar .nav-link.active {
+            color: #fff;
+            background-color: #495057;
+        }
+        .admin-header {
+            background-color: #007bff;
+            color: white;
+        }
+        .admin-content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Admin Sidebar -->
+            <nav class="col-md-2 d-none d-md-block admin-sidebar">
+                <div class="sidebar-sticky">
+                    <div class="p-3">
+                        <h5 class="text-white">
+                            <i class="fas fa-cogs"></i> Admin Panel
+                        </h5>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Users" asp-action="Index">
+                                <i class="fas fa-users"></i> Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Posts" asp-action="Index">
+                                <i class="fas fa-file-alt"></i> Posts
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Categories" asp-action="Index">
+                                <i class="fas fa-tags"></i> Categories
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Comments" asp-action="Index">
+                                <i class="fas fa-comments"></i> Comments
+                            </a>
+                        </li>
+                        <li class="nav-item mt-3">
+                            <hr class="text-secondary">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index" asp-area="">
+                                <i class="fas fa-globe"></i> View Site
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Account" asp-action="Logout" asp-area="">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-10 ml-sm-auto">
+                <div class="admin-header p-3 mb-3">
+                    <h1 class="h3 mb-0">@ViewData["Title"]</h1>
+                </div>
+
+                <div class="admin-content">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @RenderBody()
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

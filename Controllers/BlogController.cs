@@ -333,6 +333,49 @@ namespace BlogSystemApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Private area - User's own posts management
+        [Authorize]
+        public async Task<IActionResult> MyPosts(string searchString, string statusFilter, int page = 1, int pageSize = 10)
+        {
+            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+            
+            ViewData["CurrentFilter"] = searchString;
+            ViewData["StatusFilter"] = statusFilter;
+
+            var posts = from p in _context.Posts
+                        .Include(p => p.Category)
+                        where p.AuthorId == userId
+                        select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                posts = posts.Where(s => s.Title.Contains(searchString)
+                                   || s.Content.Contains(searchString)
+                                   || s.Tags.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(statusFilter))
+            {
+                if (statusFilter == "Published")
+                    posts = posts.Where(p => p.IsPublished);
+                else if (statusFilter == "Draft")
+                    posts = posts.Where(p => !p.IsPublished);
+            }
+
+            var totalItems = await posts.CountAsync();
+            var postList = await posts
+                .OrderByDescending(p => p.CreatedDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            ViewBag.CurrentPage = page;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+            return View(postList);
+        }
+
         private bool PostExists(int id)
         {
             return _context.Posts.Any(e => e.Id == id);

@@ -1,0 +1,116 @@
+@model BlogSystemApp.Models.User
+
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4>Create New User</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="Username" class="form-label"></label>
+                                <input asp-for="Username" class="form-control" />
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="Email" class="form-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="FirstName" class="form-label"></label>
+                                <input asp-for="FirstName" class="form-control" />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="LastName" class="form-label"></label>
+                                <input asp-for="LastName" class="form-control" />
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control" required />
+                                <div class="form-text">Password must be at least 6 characters long.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="Role" class="form-label"></label>
+                                <select asp-for="Role" class="form-select">
+                                    <option value="User">User</option>
+                                    <option value="Editor">Editor</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                                <span asp-validation-for="Role" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Bio" class="form-label"></label>
+                        <textarea asp-for="Bio" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Bio" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" asp-for="IsActive" />
+                        <label class="form-check-label" asp-for="IsActive">
+                            Active User
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create User" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>User Roles</h5>
+            </div>
+            <div class="card-body">
+                <dl>
+                    <dt>User</dt>
+                    <dd>Can create and manage their own posts and comments.</dd>
+                    
+                    <dt>Editor</dt>
+                    <dd>Can create posts and manage their content. Can set posts as featured.</dd>
+                    
+                    <dt>Admin</dt>
+                    <dd>Full access to all system features including user management.</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

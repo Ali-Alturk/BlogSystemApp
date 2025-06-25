@@ -1,0 +1,149 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>@ViewBag.TotalUsers</h4>
+                        <p>Total Users</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-users fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a asp-controller="Users" asp-action="Index" class="text-white">
+                    View Details <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>@ViewBag.TotalPosts</h4>
+                        <p>Total Posts</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-file-alt fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a asp-controller="Posts" asp-action="Index" class="text-white">
+                    View Details <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>@ViewBag.TotalComments</h4>
+                        <p>Total Comments</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-comments fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a asp-controller="Comments" asp-action="Index" class="text-white">
+                    View Details <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>@ViewBag.TotalCategories</h4>
+                        <p>Total Categories</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-tags fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a asp-controller="Categories" asp-action="Index" class="text-white">
+                    View Details <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-file-alt"></i> Recent Posts</h5>
+            </div>
+            <div class="card-body">
+                @if (ViewBag.RecentPosts != null && ((List<BlogSystemApp.Models.Post>)ViewBag.RecentPosts).Any())
+                {
+                    <div class="list-group list-group-flush">
+                        @foreach (var post in (List<BlogSystemApp.Models.Post>)ViewBag.RecentPosts)
+                        {
+                            <div class="list-group-item">
+                                <h6 class="mb-1">@post.Title</h6>
+                                <p class="mb-1 text-muted">By @post.AuthorName</p>
+                                <small class="text-muted">@post.CreatedDate.ToString("MMM dd, yyyy")</small>
+                                <span class="badge @(post.IsPublished ? "bg-success" : "bg-warning") ms-2">
+                                    @(post.IsPublished ? "Published" : "Draft")
+                                </span>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="text-muted">No posts yet.</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-users"></i> Recent Users</h5>
+            </div>
+            <div class="card-body">
+                @if (ViewBag.RecentUsers != null && ((List<BlogSystemApp.Models.User>)ViewBag.RecentUsers).Any())
+                {
+                    <div class="list-group list-group-flush">
+                        @foreach (var user in (List<BlogSystemApp.Models.User>)ViewBag.RecentUsers)
+                        {
+                            <div class="list-group-item">
+                                <h6 class="mb-1">@user.DisplayName</h6>
+                                <p class="mb-1 text-muted">@user.Email</p>
+                                <small class="text-muted">Joined @user.CreatedDate.ToString("MMM dd, yyyy")</small>
+                                <span class="badge bg-secondary ms-2">@user.Role</span>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="text-muted">No users yet.</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>

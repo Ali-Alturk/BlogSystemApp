@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cFMqmMaDTZ1seUJVtg7O21KFBMev0oJgTnWszTTr60g=",
+  "Hash": "0bH5r9Q5HjBSUYygBMAukr65e1e3zUrv7N3+Z4T4lKw=",
   "Source": "BlogSystemApp",
   "BasePath": "_content/BlogSystemApp",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BlogSystemApp\\wwwroot",
       "Source": "BlogSystemApp",
-      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "D:\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\css\\site.css",
+      "Identity": "D:\\BlogSystemApp\\wwwroot\\css\\site.css",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "D:\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\js\\site.js",
+      "Identity": "D:\\BlogSystemApp\\wwwroot\\js\\site.js",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "D:\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
+      "Identity": "D:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "D:\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "lib/bootstrap/css/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "Identity": "D:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "D:\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "lib/bootstrap/js/bootstrap.bundle.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "D:\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
+      "Identity": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "D:\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "lib/jquery-validation/jquery.validate.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\jquery.validate.min.js"
     },
     {
-      "Identity": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
+      "Identity": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
       "SourceId": "BlogSystemApp",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\",
+      "ContentRoot": "D:\\BlogSystemApp\\wwwroot\\",
       "BasePath": "_content/BlogSystemApp",
       "RelativePath": "lib/jquery/jquery.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -167,7 +167,7 @@
   "Endpoints": [
     {
       "Route": "css/site.css",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\css\\site.css",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -204,7 +204,7 @@
     },
     {
       "Route": "css/site.uwr92lamhh.css",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\css\\site.css",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -249,7 +249,7 @@
     },
     {
       "Route": "js/site.but1kovtz3.js",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\js\\site.js",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -294,7 +294,7 @@
     },
     {
       "Route": "js/site.js",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\js\\site.js",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -331,7 +331,7 @@
     },
     {
       "Route": "lib/bootstrap/css/bootstrap.min.css",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -368,7 +368,7 @@
     },
     {
       "Route": "lib/bootstrap/css/bootstrap.min.phwklrx2ki.css",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -413,7 +413,7 @@
     },
     {
       "Route": "lib/bootstrap/js/bootstrap.bundle.min.jib7vbhal6.js",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -458,7 +458,7 @@
     },
     {
       "Route": "lib/bootstrap/js/bootstrap.bundle.min.js",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -495,7 +495,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.d171zkdrjx.js",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -540,7 +540,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -577,7 +577,7 @@
     },
     {
       "Route": "lib/jquery-validation/jquery.validate.min.js",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -614,7 +614,7 @@
     },
     {
       "Route": "lib/jquery-validation/jquery.validate.min.l1zq2mitth.js",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery-validation\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -659,7 +659,7 @@
     },
     {
       "Route": "lib/jquery/jquery.min.ehgnz7f14e.js",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -704,7 +704,7 @@
     },
     {
       "Route": "lib/jquery/jquery.min.js",
-      "AssetFile": "E:\\BlogSystemApp1\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
+      "AssetFile": "D:\\BlogSystemApp\\wwwroot\\lib\\jquery\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {

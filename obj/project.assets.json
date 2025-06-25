@@ -2614,11 +2614,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\BlogSystemApp1\\BlogSystemApp\\BlogSystemApp.csproj",
+      "projectUniqueName": "D:\\BlogSystemApp\\BlogSystemApp.csproj",
       "projectName": "BlogSystemApp",
-      "projectPath": "E:\\BlogSystemApp1\\BlogSystemApp\\BlogSystemApp.csproj",
+      "projectPath": "D:\\BlogSystemApp\\BlogSystemApp.csproj",
       "packagesPath": "C:\\Users\\old-a\\.nuget\\packages\\",
-      "outputPath": "E:\\BlogSystemApp1\\BlogSystemApp\\obj\\",
+      "outputPath": "D:\\BlogSystemApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\old-a\\AppData\\Roaming\\NuGet\\NuGet.Config"
